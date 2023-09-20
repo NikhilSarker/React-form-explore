@@ -1,19 +1,45 @@
 
 import './App.css';
-import HookForm from './components/HookForm/HookForm';
+import ReuseableForm from './components/ReuseableForm/ReuseableForm';
+// import HookForm from './components/HookForm/HookForm';
 // import RefForm from './components/RefForm/RefForm';
 // import StateForm from './components/StateForm/StateForm';
 // import Form from './components/Form/Form';
 
 function App() {
 
+    const handleSignUp = (data)=>{
+    console.log('sign up', data);
+  }
+    const handleUpdate = (data)=>{
+      console.log('Update', data);
+  }
+
   return (
     <>
-      <h1 className='py-32 text-5xl font-bold'>React Form</h1>
+      <h1 className='py-5 text-5xl font-bold'>React Form</h1>
       {/* <Form></Form> */}
       {/* <StateForm></StateForm> */}
       {/* <RefForm></RefForm> */}
-      <HookForm></HookForm>
+      {/* <HookForm></HookForm> */}
+      <ReuseableForm 
+      formTitle={'Sign Up'} 
+      handleSubmit={handleSignUp}
+      >
+        <div>
+          <h3>Sign up</h3>
+          <p>Please sign up </p>
+        </div>
+      </ReuseableForm>
+      <ReuseableForm 
+      formTitle={'Profile Update'} 
+      btnText='Update' 
+      handleSubmit={handleUpdate}>
+        <div>
+          <h3>Update profile</h3>
+          <p>Please update your profile </p>
+        </div>
+      </ReuseableForm>
 
     </>
   )
